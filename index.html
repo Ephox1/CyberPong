@@ -257,8 +257,9 @@
     keys[e.key.toLowerCase()] = true;
 
     if (state === STATE.MENU) {
-      if (e.key === "ArrowUp")   { menuIndex = (menuIndex + menuItems.length - 1) % menuItems.length; sfxSelect(); }
-      if (e.key === "ArrowDown") { menuIndex = (menuIndex + 1) % menuItems.length; sfxSelect(); }
+      const k = e.key.toLowerCase();
+      if (e.key === "ArrowUp"   || k === "w") { menuIndex = (menuIndex + menuItems.length - 1) % menuItems.length; sfxSelect(); }
+      if (e.key === "ArrowDown" || k === "s") { menuIndex = (menuIndex + 1) % menuItems.length; sfxSelect(); }
       if (e.key === "Enter" || e.key === " ") {
         const item = menuItems[menuIndex];
         initAudio();
